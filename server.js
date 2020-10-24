@@ -2,7 +2,7 @@
 // Environmental Variables
 ///////////////////////////
 require("dotenv").config();
-const { PORT = 3000, NODE_ENV = "development" } = process.env;
+const { PORT = 6000, NODE_ENV = "development" } = process.env;
 
 //MONGO CONNECTION
 const mongoose = require("./DB/conn");
@@ -22,7 +22,8 @@ const dogRouter = require("./controllers/dog");
 ////////////
 //MIDDLEWARE
 ////////////
-NODE_ENV === "production" ? app.use(cors(corsOptions)) : app.use(cors());
+// NODE_ENV === "production" ? app.use(cors(corsOptions)) : app.use(cors());
+app.use(cors())
 app.use(express.json());
 app.use(morgan("tiny")); //logging
 
